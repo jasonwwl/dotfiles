@@ -62,7 +62,7 @@ config.max_fps = 120
 config.animation_fps = 1
 config.cursor_blink_rate = 0
 config.scrollback_lines = 10000
-config.enable_scroll_bar = false
+config.enable_scroll_bar = true
 
 -------------------------------------------------
 -- 快捷键：直接组合键，避免与 Claude Code 冲突
