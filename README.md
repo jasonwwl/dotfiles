@@ -1,13 +1,42 @@
 # dotfiles
 
-个人配置文件。
+个人配置文件（WSL2 + Windows 环境）。
 
 ## 内容
 
-| 文件 | 对应位置 | 说明 |
+| 文件 | 安装位置 | 说明 |
 |---|---|---|
-| `.wezterm.lua` | `~/.wezterm.lua` | WezTerm 终端配置 |
-| `.claude/statusline-command.sh` | `~/.claude/statusline-command.sh` | Claude Code 状态栏脚本 |
+| `.wezterm.lua` | Windows home：`C:\Users\<用户名>\.wezterm.lua` | WezTerm 终端配置 |
+| `windows-terminal/settings.json` | `%LocalAppData%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` | Windows Terminal 配置 |
+| `.claude/statusline-command.sh` | WSL：`~/.claude/statusline-command.sh` | Claude Code 状态栏脚本 |
+
+> WezTerm 与 Windows Terminal 都跑在 **Windows 端**，配置不在 WSL 的 `~` 里。
+> 两者统一用 **Dracula** 配色 + **Maple Mono NF CN** 字体（需在 Windows 装好该字体）。
+
+## Windows Terminal
+
+把 `windows-terminal/settings.json` 复制到：
+
+```
+%LocalAppData%\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
+```
+
+在 WSL 里即（`<用户名>` 替换成你的 Windows 用户名）：
+
+```bash
+cp windows-terminal/settings.json \
+  "/mnt/c/Users/<用户名>/AppData/Local/Packages/Microsoft.WindowsTerminal_8wekyb3d8bbwe/LocalState/settings.json"
+```
+
+特性：Shift+Enter 换行（配合 Claude Code 多行输入）、Ctrl+Shift+C/V 复制粘贴、Ctrl+Shift+F 查找、Alt+Shift+D 分屏。
+
+## WezTerm
+
+把 `.wezterm.lua` 复制到 Windows home：
+
+```bash
+cp .wezterm.lua /mnt/c/Users/<用户名>/.wezterm.lua
+```
 
 ## Claude Code 状态栏
 
